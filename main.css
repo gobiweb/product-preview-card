@@ -84,15 +84,25 @@ body {
 
 .product {
   --content-padding: 1.5em;
+  --content-spacing: 1em;
 
+  display: grid;
   background-color: var(--clr-neutral-100);
   border-radius: 0.5rem;
   overflow: hidden;
+  max-width: 600px;
+}
+
+@media (min-width: 600px) {
+  .product {
+    --content-padding: 2em;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .product__content {
   display: grid;
-  gap: var(--content-padding);
+  gap: var(--content-spacing);
   padding: var(--content-padding);
 }
 
