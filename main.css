@@ -5,11 +5,12 @@
 
 :root {
   --clr-primary-400: hsl(158, 36%, 37%);
+  --clr-primary-500: hsl(158, 36%, 20%);
 
   --clr-neutral-900: hsl(212, 21%, 14%);
   --clr-neutral-400: hsl(228, 12%, 48%);
   --clr-neutral-200: hsl(30, 38%, 92%);
-  --clr-neutral-100: hsl(0, 0, 100%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
 
   --ff-accent: "Fraunces", serif;
   --ff-base: "Montserrat", sans-serif;
@@ -36,7 +37,7 @@ html:focus-within {
 }
 
 body {
-  line-height: 1.5;
+  line-height: 1.7;
   min-height: 100vh;
 }
 
@@ -54,4 +55,89 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+/* utilities */
+/* -------------------------------- */
+
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* general styling */
+/* -------------------------------- */
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 0.875rem; /* 14px */
+  color: var(--clr-neutral-400);
+  background-color: var(--clr-neutral-200);
+
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+}
+
+.product {
+  --content-padding: 1.5em;
+
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.product__content {
+  display: grid;
+  gap: var(--content-padding);
+  padding: var(--content-padding);
+}
+
+.product__category {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.product__title {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--clr-neutral-900);
+  line-height: 1;
+}
+
+.product__price {
+  font-size: 2rem;
+  color: var(--clr-primary-400);
+  font-family: var(--ff-accent);
+}
+
+.button {
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0.75em;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 0.5em;
+  padding: 0.75em 1.5em;
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-100);
+  font-size: 0.925rem;
+  font-weight: var(--fw-bold);
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-primary-500);
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("./images/icon-cart.svg");
+  width: 15px;
+  height: 16px;
 }
